@@ -7,9 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
-  <div class="container">
-    <%= yield %>
+  <%= render "layouts/header" %>
+  <div id="main-container" class="container">
+    <div class="row">
+      <div class="col-xs-9">
+        <%= yield %>
+      </div>
+      <div class="col-xs-3">
+        <%= content_for?(:sidebar) ? yield(:sidebar) : render("layouts/sidebar") %>
+      </div>
+    </div>
   </div>
 </body>
 </html>
