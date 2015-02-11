@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @university.name %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="3">Top 10 Fraternity Rankings</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fraternity_chapters.each do |chapter| %>
+      <tr>
+        <td><%= link_to "#{chapter.fraternity.name} - #{chapter.fraternity.letters}", 
+                        controller: "fraternity_chapter", 
+                        action: "show", 
+                        id: chapter %></td>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="3">Top 10 Sorority Rankings</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sorority_chapters.each do |chapter| %>
+      <tr>
+        <td><%= link_to "#{chapter.sorority.name} - #{chapter.sorority.letters}", 
+                        controller: "sorority_chapter", 
+                        action: "show", 
+                        id: chapter %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

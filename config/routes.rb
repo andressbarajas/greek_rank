@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'sorority_chapter/index'
+
+  get 'sorority_chapter/show'
+
+  get 'fraternity_chapter/index'
+
+  get 'fraternity_chapter/show'
+
+  resources :sororities
+
+  resources :fraternities
+
+  resources :universities
+
+  get 'welcome/index'
+
+  root 'welcome#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

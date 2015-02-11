@@ -1,0 +1,17 @@
+<%= form_for(@sorority) do |f| %>
+  <% if @sorority.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sorority.errors.count, "error") %> prohibited this sorority from being saved:</h2>
+
+      <ul>
+      <% @sorority.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

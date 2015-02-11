@@ -1,0 +1,2 @@
+module SororitiesHelper
+end

@@ -1,0 +1,21 @@
+<h1>Sororities List</h1>
+
+<p>Search through our list of sorority organizations provided below to find general information about each of them, or check out the best sororities on Greekrank.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1">Sorority Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sororities.each do |sorority| %>
+      <tr>
+        <td><%= link_to "#{sorority.name} - #{sorority.letters}", sorority %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

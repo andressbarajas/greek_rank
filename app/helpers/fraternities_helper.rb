@@ -1,0 +1,2 @@
+module FraternitiesHelper
+end

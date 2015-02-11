@@ -1,0 +1,21 @@
+<h1>Fraternities List</h1>
+
+<p>Search through our list of fraternity organizations provided below to find general information about each of them, or check out the best fraternities on Greekrank.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1">Fraternity Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fraternities.each do |fraternity| %>
+      <tr>
+        <td><%= link_to "#{fraternity.name} - #{fraternity.letters}", fraternity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
