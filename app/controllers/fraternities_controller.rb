@@ -71,6 +71,6 @@ class FraternitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fraternity_params
-      params[:fraternity]
+      params.require(:fraternity).permit(:name, :letters)
     end
 end

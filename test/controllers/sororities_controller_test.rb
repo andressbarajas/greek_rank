@@ -18,7 +18,7 @@ class SororitiesControllerTest < ActionController::TestCase
 
   test "should create sorority" do
     assert_difference('Sorority.count') do
-      post :create, sorority: {  }
+      post :create, sorority: { name: @sorority.name, letters: @sorority.letters }
     end
 
     assert_redirected_to sorority_path(assigns(:sorority))
@@ -35,7 +35,7 @@ class SororitiesControllerTest < ActionController::TestCase
   end
 
   test "should update sorority" do
-    patch :update, id: @sorority, sorority: {  }
+    patch :update, id: @sorority, sorority: { name: @sorority.name, letters: @sorority.letters  }
     assert_redirected_to sorority_path(assigns(:sorority))
   end
 

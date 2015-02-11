@@ -71,6 +71,6 @@ class SororitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sorority_params
-      params[:sorority]
+      params.require(:sorority).permit(:name, :letters)
     end
 end

@@ -18,7 +18,7 @@ class UniversitiesControllerTest < ActionController::TestCase
 
   test "should create university" do
     assert_difference('University.count') do
-      post :create, university: {  }
+      post :create, university: { name: @university.name, initials: @university.initials }
     end
 
     assert_redirected_to university_path(assigns(:university))
@@ -35,7 +35,7 @@ class UniversitiesControllerTest < ActionController::TestCase
   end
 
   test "should update university" do
-    patch :update, id: @university, university: {  }
+    patch :update, id: @university, university: { name: @university.name, initials: @university.initials }
     assert_redirected_to university_path(assigns(:university))
   end
 
