@@ -1,2 +1,7 @@
-<h1>FraternityChapter#show</h1>
-<p>Find me in app/views/fraternity_chapter/show.html.erb</p>
+<h1><%= "#{@fraternity.name} - #{@fraternity.letters} Fraternity Rating at #{@chapter.university.initials}" %></h1>
+
+Fraternity Name: <%= link_to "#{@fraternity.name}", @fraternity %><br>
+School: <%= link_to "#{@chapter.university.name} - #{@chapter.university.initials}", @chapter.university %><br>
+Chapter Name: <%= "#{@chapter.chapter_name}" %><br><br><br>
+
+Ratings

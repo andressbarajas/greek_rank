@@ -1,2 +1,7 @@
-<h1>SororityChapter#show</h1>
-<p>Find me in app/views/sorority_chapter/show.html.erb</p>
+<h1><%= "#{@sorority.name} - #{@sorority.letters} Sorority Rating at #{@chapter.university.initials}" %></h1>
+
+Fraternity Name: <%= link_to "#{@sorority.name}", @sorority %><br>
+School: <%= link_to "#{@chapter.university.name} - #{@chapter.university.initials}", @chapter.university %><br>
+Chapter Name: <%= "#{@chapter.chapter_name}" %><br><br><br>
+
+Ratings
