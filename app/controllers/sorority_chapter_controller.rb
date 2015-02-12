@@ -1,10 +1,7 @@
 class SororityChapterController < ApplicationController
 
   before_action :set_sorority_chapter, only: [:show]
-
-  def index
-  end
-
+  
   def show
     @sorority = @chapter.sorority
   end

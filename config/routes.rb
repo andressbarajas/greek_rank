@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
-  get 'sorority_chapter/index'
-
-  get 'sorority_chapter/show'
-
-  get 'fraternity_chapter/index'
-
-  get 'fraternity_chapter/show'
 
   resources :sororities
 
   resources :fraternities
 
-  resources :universities
+  resources :universities do
+    resources :fraternity_chapter, only: [:show]
+    resources :sorority_chapter, only: [:show]
+  end
 
   get 'welcome/index'
 

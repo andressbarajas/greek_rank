@@ -1,7 +1,9 @@
-<h1><%= "#{@fraternity.name} - #{@fraternity.letters} Fraternity Rating at #{@chapter.university.initials}" %></h1>
+<h1><%= "#{@fraternity.name} - #{@fraternity.letters} Fraternity Rating at #{@university.initials}" %></h1>
+
+<%= render "shared/uni_category_buttons" %>
 
 Fraternity Name: <%= link_to "#{@fraternity.name}", @fraternity %><br>
-School: <%= link_to "#{@chapter.university.name} - #{@chapter.university.initials}", @chapter.university %><br>
+School: <%= link_to "#{@university.name} - #{@university.initials}", @chapter.university %><br>
 Chapter Name: <%= "#{@chapter.chapter_name}" %><br><br><br>
 
 Ratings

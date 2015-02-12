@@ -1,6 +1,7 @@
 <h1><%= "#{@sorority.name} - #{@sorority.letters} Sorority Rating at #{@chapter.university.initials}" %></h1>
 
-Fraternity Name: <%= link_to "#{@sorority.name}", @sorority %><br>
+<%= link_to "Overview", university_path(@chaper.university), :class => 'btn btn-mini' %>
+Sorority Name: <%= link_to "#{@sorority.name}", @sorority %><br>
 School: <%= link_to "#{@chapter.university.name} - #{@chapter.university.initials}", @chapter.university %><br>
 Chapter Name: <%= "#{@chapter.chapter_name}" %><br><br><br>
 

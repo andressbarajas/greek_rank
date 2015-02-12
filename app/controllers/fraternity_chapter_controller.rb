@@ -2,11 +2,9 @@ class FraternityChapterController < ApplicationController
 
   before_action :set_fraternity_chapter, only: [:show]
 
-  def index
-  end
-
   def show
     @fraternity = @chapter.fraternity
+    @university = @chapter.university
   end
 
   private
