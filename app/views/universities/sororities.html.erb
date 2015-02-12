@@ -1,0 +1,20 @@
+
+<%= render "shared/uni_category_buttons" %>
+
+<h3><%= "#{@university.name} - #{@university.initials} Sororities"%></h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="3">Sororities</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chapters.each do |chapter| %>
+      <tr>
+        <td><%= link_to "#{chapter.sorority.name} - #{chapter.sorority.letters}", 
+                        university_sorority_chapter_path(@university, chapter) %></td>
+    <% end %>
+  </tbody>
+</table>

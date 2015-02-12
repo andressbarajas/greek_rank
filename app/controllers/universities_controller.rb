@@ -1,5 +1,5 @@
 class UniversitiesController < ApplicationController
-  before_action :set_university, only: [:show, :edit, :update, :destroy]
+  before_action :set_university, only: [:show, :edit, :update, :destroy, :discussion, :fraternities, :sororities]
 
   # GET /universities
   # GET /universities.json
@@ -10,8 +10,8 @@ class UniversitiesController < ApplicationController
   # GET /universities/1
   # GET /universities/1.json
   def show
-    @fraternity_chapters = @university.fraternity_chapters
-    @sorority_chapters = @university.sorority_chapters
+    @fraternity_chapters = @university.fraternity_chapters.limit(5)
+    @sorority_chapters = @university.sorority_chapters.limit(5)
   end
 
   # GET /universities/new
@@ -21,6 +21,18 @@ class UniversitiesController < ApplicationController
 
   # GET /universities/1/edit
   def edit
+  end
+
+  def discussion
+
+  end
+
+  def fraternities
+    @chapters = @university.fraternity_chapters.joins(:fraternity).order("fraternities.name")
+  end
+
+  def sororities
+    @chapters = @university.sorority_chapters.joins(:sorority).order("sororities.name")
   end
 
   # POST /universities

@@ -1,4 +1,6 @@
-<h1><%= "#{@sorority.name} - #{@sorority.letters} Sorority Rating at #{@chapter.university.initials}" %></h1>
+<%= render "shared/uni_category_buttons" %>
+
+<h3><%= "#{@sorority.name} - #{@sorority.letters} Sorority Rating at #{@chapter.university.initials}" %></h3>
 
 <%= link_to "Overview", university_path(@chaper.university), :class => 'btn btn-mini' %>
 Sorority Name: <%= link_to "#{@sorority.name}", @sorority %><br>

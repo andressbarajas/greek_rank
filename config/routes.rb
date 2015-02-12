@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   resources :fraternities
 
   resources :universities do
+    member do
+      get 'discussion'
+      get 'fraternities'
+      get 'sororities'
+    end
+
     resources :fraternity_chapter, only: [:show]
     resources :sorority_chapter, only: [:show]
   end
