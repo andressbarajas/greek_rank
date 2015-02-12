@@ -1,4 +1,29 @@
 
 <%= render "shared/uni_category_buttons" %>
 
-The truth
+<h3><%= "#{@university.name} - #{@university.initials} Discussion"%></h3>
+
+<%= form_tag(university_topic_index_path(@university)) do %>
+  <%= label_tag(:nick_name, "Nickname:") %>
+  <%= text_field_tag("topic[nick_name]") %>
+  <%= label_tag(:subject, "Subject:") %>
+  <%= text_field_tag("topic[subject]") %>
+  <%= label_tag(:message, "Message:") %>
+  <%= text_area_tag("topic[message]") %>
+  <%= submit_tag("New") %>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="3">Discussions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @discussions.each do |topic| %>
+      <tr>
+        <td><%= link_to "#{topic.subject}", university_topic_path(@university, topic) %></td>
+    <% end %>
+  </tbody>
+</table>

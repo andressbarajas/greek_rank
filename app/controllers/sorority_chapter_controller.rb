@@ -4,6 +4,7 @@ class SororityChapterController < ApplicationController
   
   def show
     @sorority = @chapter.sorority
+    @university = @chapter.university
   end
 
   private

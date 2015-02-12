@@ -4,6 +4,7 @@ class CreateFraternityChapters < ActiveRecord::Migration
       t.belongs_to :university, index: true
       t.belongs_to :fraternity, index: true
       t.string :chapter_name, null: false
+
       t.timestamps
     end
   end

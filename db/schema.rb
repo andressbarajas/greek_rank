@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210101935) do
+ActiveRecord::Schema.define(version: 20150212113840) do
 
   create_table "fraternities", force: true do |t|
     t.integer  "university_id"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20150210101935) do
   add_index "fraternity_chapters", ["fraternity_id"], name: "index_fraternity_chapters_on_fraternity_id"
   add_index "fraternity_chapters", ["university_id"], name: "index_fraternity_chapters_on_university_id"
 
+  create_table "posts", force: true do |t|
+    t.integer  "topic_id"
+    t.string   "nick_name",  null: false
+    t.text     "message",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
+
   create_table "sororities", force: true do |t|
     t.integer  "university_id"
     t.string   "name",          null: false
@@ -54,6 +64,15 @@ ActiveRecord::Schema.define(version: 20150210101935) do
 
   add_index "sorority_chapters", ["sorority_id"], name: "index_sorority_chapters_on_sorority_id"
   add_index "sorority_chapters", ["university_id"], name: "index_sorority_chapters_on_university_id"
+
+  create_table "topics", force: true do |t|
+    t.integer  "university_id"
+    t.string   "subject",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "topics", ["university_id"], name: "index_topics_on_university_id"
 
   create_table "universities", force: true do |t|
     t.string   "name",       null: false

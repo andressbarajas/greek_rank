@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       get 'fraternities'
       get 'sororities'
     end
-
+    resources :topic, only: [:show, :create]
     resources :fraternity_chapter, only: [:show]
     resources :sorority_chapter, only: [:show]
   end

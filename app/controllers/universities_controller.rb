@@ -24,7 +24,7 @@ class UniversitiesController < ApplicationController
   end
 
   def discussion
-
+    @discussions = Topic.joins(:university).where("universities.id = ?", @university.id)
   end
 
   def fraternities
