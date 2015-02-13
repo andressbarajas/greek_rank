@@ -10,7 +10,12 @@ Rails.application.routes.draw do
       get 'fraternities'
       get 'sororities'
     end
-    resources :topic, only: [:show, :create]
+
+    resources :topic, only: [:show, :create] do
+      post 'create_topic_reply'
+      post 'create_post_reply'
+    end
+    
     resources :fraternity_chapter, only: [:show]
     resources :sorority_chapter, only: [:show]
   end

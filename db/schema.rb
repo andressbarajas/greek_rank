@@ -14,14 +14,11 @@
 ActiveRecord::Schema.define(version: 20150212113840) do
 
   create_table "fraternities", force: true do |t|
-    t.integer  "university_id"
-    t.string   "name",          null: false
+    t.string   "name",       null: false
     t.string   "letters"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "fraternities", ["university_id"], name: "index_fraternities_on_university_id"
 
   create_table "fraternity_chapters", force: true do |t|
     t.integer  "university_id"
@@ -36,8 +33,9 @@ ActiveRecord::Schema.define(version: 20150212113840) do
 
   create_table "posts", force: true do |t|
     t.integer  "topic_id"
-    t.string   "nick_name",  null: false
-    t.text     "message",    null: false
+    t.string   "nick_name",      null: false
+    t.text     "message",        null: false
+    t.integer  "parent_post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,14 +43,11 @@ ActiveRecord::Schema.define(version: 20150212113840) do
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
 
   create_table "sororities", force: true do |t|
-    t.integer  "university_id"
-    t.string   "name",          null: false
+    t.string   "name",       null: false
     t.string   "letters"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "sororities", ["university_id"], name: "index_sororities_on_university_id"
 
   create_table "sorority_chapters", force: true do |t|
     t.integer  "university_id"
@@ -68,6 +63,8 @@ ActiveRecord::Schema.define(version: 20150212113840) do
   create_table "topics", force: true do |t|
     t.integer  "university_id"
     t.string   "subject",       null: false
+    t.string   "nick_name",     null: false
+    t.text     "message",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

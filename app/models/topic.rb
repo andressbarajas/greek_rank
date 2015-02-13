@@ -1,8 +1,9 @@
 class Topic < ActiveRecord::Base
 
   validates :subject, presence: true
-  validates :posts, presence: true
+  validates :nick_name, presence: true
+  validates :message, presence: true
 
   belongs_to :university
-  has_many :posts
+  has_many :posts, dependent: :destroy
 end

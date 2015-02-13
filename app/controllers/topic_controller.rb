@@ -7,11 +7,33 @@ class TopicController < ApplicationController
 
   def create
     @university = University.find(params[:university_id])
-    post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message])
-    @topic = Topic.new(subject: topic_params[:subject], university_id: @university.id)
-    @topic.posts << post
+    @topic = Topic.new(subject: topic_params[:subject], 
+                       nick_name: topic_params[:nick_name], 
+                       message: topic_params[:message],
+                       university_id: @university.id)
     @topic.save
 
+    redirect_to university_topic_path(@university, @topic)
+  end
+
+  def create_topic_reply
+    @university = University.find(params[:university_id])
+    @topic = Topic.find(params[:topic_id])
+    post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message])
+    @topic.posts << post
+    @topic.save
+    
+    redirect_to university_topic_path(@university, @topic)
+  end
+
+  def create_post_reply
+    @post = Post.find(topic_params[:post_id])
+    @university = University.find(params[:university_id])
+    @topic = Topic.find(params[:topic_id])
+    post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message], parent_post_id: @post.id)
+    @post.replies << post
+    @post.save
+    
     redirect_to university_topic_path(@university, @topic)
   end
 
@@ -23,6 +45,6 @@ class TopicController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:nick_name, :subject, :message)
+      params.require(:topic).permit(:nick_name, :subject, :message, :post_id)
     end
 end
