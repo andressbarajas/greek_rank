@@ -2,8 +2,6 @@
 <%= render "shared/uni_category_buttons" %>
 
 <h3><%= "Subject: #{@topic.subject}" %></h3>
-<%=# "By: #{@topic.nick_name}"%><br>
-<%=# "Message: #{@topic.message}"%>
 
 <%= form_tag(university_topic_create_topic_reply_path(@university, @topic)) do %>
   <%= label_tag(:nick_name, "Nickname:") %>
