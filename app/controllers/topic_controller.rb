@@ -2,6 +2,7 @@ class TopicController < ApplicationController
   before_action :set_topic, only: [:show]
 
   def show
+    @university = University.find(params[:university_id])
   end
 
   def create

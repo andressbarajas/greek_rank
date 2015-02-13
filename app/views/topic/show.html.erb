@@ -1,2 +1,10 @@
-<h1>Topic#show</h1>
-<p>Find me in app/views/topic/show.html.erb</p>
+
+<%= render "shared/uni_category_buttons" %>
+
+<h3><%= "#{@topic.subject}" %></h3>
+
+<% @topic.posts.each do |post| %>
+  <%= "By: #{post.nick_name}" %>
+  <br>
+  <%= "Message: #{post.message}" %>
+<% end %>
