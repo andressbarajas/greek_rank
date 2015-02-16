@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212113840) do
+ActiveRecord::Schema.define(version: 20150214034547) do
 
   create_table "fraternities", force: true do |t|
     t.string   "name",       null: false
@@ -41,6 +41,20 @@ ActiveRecord::Schema.define(version: 20150212113840) do
   end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
+
+  create_table "ratings", force: true do |t|
+    t.string   "nick_name",   null: false
+    t.string   "message",     null: false
+    t.float    "looks",       null: false
+    t.float    "popularity",  null: false
+    t.float    "clasiness",   null: false
+    t.float    "involvement", null: false
+    t.float    "socialness",  null: false
+    t.float    "brotherhood", null: false
+    t.integer  "chapter_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sororities", force: true do |t|
     t.string   "name",       null: false

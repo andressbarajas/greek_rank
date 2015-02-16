@@ -6,4 +6,10 @@ Sorority Name: <%= link_to "#{@sorority.name}", @sorority %><br>
 School: <%= link_to "#{@chapter.university.name} - #{@chapter.university.initials}", @chapter.university %><br>
 Chapter Name: <%= "#{@chapter.chapter_name}" %><br><br><br>
 
-Ratings
+<%= link_to 'Rate this Sorority', 
+            university_sorority_chapter_rating_rate_path(@university, @chapter, chapter_type: 'sorority_chapter', chapter_id: @chapter.id) %>
+
+<% @ratings.each do |rating| %>
+  <%= "By: #{rating.nick_name}" %><br>
+  <%= "Message: #{rating.message}" %><br>
+<% end %>

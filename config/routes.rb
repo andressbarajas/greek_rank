@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'rating/rate'
+
+  get 'rating/create'
+
   resources :sororities
 
   resources :fraternities
@@ -16,8 +20,14 @@ Rails.application.routes.draw do
       post 'create_post_reply'
     end
     
-    resources :fraternity_chapter, only: [:show]
-    resources :sorority_chapter, only: [:show]
+    resources :fraternity_chapter, only: [:show] do
+      get 'rating/rate'
+      post 'rating/create'
+    end
+    resources :sorority_chapter, only: [:show] do
+      get 'rating/rate'
+      post 'rating/create'
+    end
   end
 
   get 'welcome/index'

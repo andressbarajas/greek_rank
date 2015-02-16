@@ -5,6 +5,7 @@ class SororityChapterController < ApplicationController
   def show
     @sorority = @chapter.sorority
     @university = @chapter.university
+    @ratings = Rating.where(:chapter_id => @chapter.id).order('created_at ASC')
   end
 
   private

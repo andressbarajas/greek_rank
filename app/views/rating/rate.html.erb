@@ -1,0 +1,20 @@
+<%= form_for(polymorphic_path([@university, @chapter], method: :create)) do |f| %>
+  <%= label_tag(:nick_name, "Nickname:") %><br>
+  <%= text_field_tag('rate[nick_name]') %><br>
+  <%= label_tag(:message, "Message:") %><br>
+  <%= text_area_tag('rate[message]') %><br>
+
+  <%= label_tag(:looks, "Looks:") %>
+  <%= number_field_tag('rating[looks]', nil) %>
+  <%= label_tag(:popularity, "Popularity:") %>
+  <%= number_field_tag('rating[popularity]', nil) %>
+  <%= label_tag(:classiness, "Classiness:") %>
+  <%= number_field_tag('rating[classiness]', nil) %>
+  <%= label_tag(:involvement, "Involvement:") %>
+  <%= number_field_tag('rating[involvementy]', nil) %>
+  <%= label_tag(:socialness, "Socialness:") %>
+  <%= number_field_tag('rating[socialness]', nil) %>
+  <%= label_tag(:brotherhood, "Brotherhood:") %>
+  <%= number_field_tag('rating[brotherhood]', nil) %><br>
+  <%= submit_tag("Rate") %>
+<% end %>
