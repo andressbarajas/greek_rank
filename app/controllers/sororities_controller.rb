@@ -1,30 +1,23 @@
 class SororitiesController < ApplicationController
   before_action :set_sorority, only: [:show, :edit, :update, :destroy]
+  before_filter :verify_is_admin, except: [:index, :show]
 
-  # GET /sororities
-  # GET /sororities.json
   def index
     @sororities = Sorority.all
   end
 
-  # GET /sororities/1
-  # GET /sororities/1.json
   def show
     university_ids = SororityChapter.where(:sorority_id => @sorority.id).map(&:university_id)
     @universities = University.where(:id => university_ids)
   end
 
-  # GET /sororities/new
   def new
     @sorority = Sorority.new
   end
 
-  # GET /sororities/1/edit
   def edit
   end
 
-  # POST /sororities
-  # POST /sororities.json
   def create
     @sorority = Sorority.new(sorority_params)
 
@@ -39,8 +32,6 @@ class SororitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sororities/1
-  # PATCH/PUT /sororities/1.json
   def update
     respond_to do |format|
       if @sorority.update(sorority_params)
@@ -53,8 +44,6 @@ class SororitiesController < ApplicationController
     end
   end
 
-  # DELETE /sororities/1
-  # DELETE /sororities/1.json
   def destroy
     @sorority.destroy
     respond_to do |format|

@@ -1,30 +1,23 @@
 class FraternitiesController < ApplicationController
   before_action :set_fraternity, only: [:show, :edit, :update, :destroy]
+  before_filter :verify_is_admin, except: [:index, :show]
 
-  # GET /fraternities
-  # GET /fraternities.json
   def index
     @fraternities = Fraternity.order('name')
   end
 
-  # GET /fraternities/1
-  # GET /fraternities/1.json
   def show
     university_ids = FraternityChapter.where(:fraternity_id => @fraternity.id).map(&:university_id)
     @universities = University.where(:id => university_ids)
   end
 
-  # GET /fraternities/new
   def new
     @fraternity = Fraternity.new
   end
 
-  # GET /fraternities/1/edit
   def edit
   end
 
-  # POST /fraternities
-  # POST /fraternities.json
   def create
     @fraternity = Fraternity.new(fraternity_params)
 
@@ -39,8 +32,6 @@ class FraternitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /fraternities/1
-  # PATCH/PUT /fraternities/1.json
   def update
     respond_to do |format|
       if @fraternity.update(fraternity_params)
@@ -53,8 +44,6 @@ class FraternitiesController < ApplicationController
     end
   end
 
-  # DELETE /fraternities/1
-  # DELETE /fraternities/1.json
   def destroy
     @fraternity.destroy
     respond_to do |format|

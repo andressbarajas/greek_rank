@@ -1,13 +1,6 @@
 class UniversitiesController < ApplicationController
-  before_action :set_university, only: [:show, :edit, :update, :destroy, :discussion, :fraternities, :sororities]
-
-  def search
-    if params[:search].present?
-      @universities = University.search(params[:search])
-    else
-      @universities = University.all
-    end
-  end
+  before_action :set_university, except: [:index, :new, :create, :search] 
+  before_filter :verify_is_admin, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @universities = University.all
@@ -68,6 +61,14 @@ class UniversitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to universities_url, notice: 'University was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    if params[:search].present?
+      @universities = University.search(params[:search])
+    else
+      @universities = University.all
     end
   end
 

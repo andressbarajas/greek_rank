@@ -1,15 +1,24 @@
-<header class="navbar navbar-default navbar-inverse">
+<nav class="navbar navbar-default navbar-inverse", role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <div class="navbar-brand"><%= link_to "GreekRank", root_path %></div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "GreekRank", root_path, class: "navbar-brand" %>
     </div>
-    <nav>
+    <div class="collapse navbar-collapse", id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to "Universities", universities_path %></li>
         <li><%= link_to "Fraternities", fraternities_path %> </li>
         <li><%= link_to "Sororities", sororities_path %></li>
         <li><%= link_to "Rankings", '#' %></li>
-        <li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li> 
           <%= form_tag search_universities_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
             <p>
               <%= text_field_tag :search, params[:search], class: "form-control" %>
@@ -17,12 +26,9 @@
             <p>
           <% end %>
         </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Login",   new_user_session_path %></li>
         <li><%= link_to "Register", new_user_registration_path %></li>
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
+</nav>

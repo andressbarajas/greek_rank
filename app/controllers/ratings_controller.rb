@@ -2,11 +2,11 @@ class RatingsController < ApplicationController
   before_filter :find_chapter
 
   def new
-    @rating = @chapter.ratings.new
+    @rating = @chapter.ratings.build
   end
 
   def create
-    @rating = @chapter.ratings.new(rating_params)
+    @rating = @chapter.ratings.build(rating_params)
     @rating.save
 
     redirect_to @chapter
