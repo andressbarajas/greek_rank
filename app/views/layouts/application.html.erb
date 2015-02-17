@@ -10,9 +10,11 @@
   <%= render "layouts/header" %>
 
   <div id="main-container" class="container">
+
     <% flash.each do |name,msg|%>
       <%= content_tag(:div, msg, class: "alert alert-info")%>
     <% end %>
+
     <div class="row">
       <div class="col-xs-9">
         <%= yield %>
@@ -21,6 +23,7 @@
         <%= content_for?(:sidebar) ? yield(:sidebar) : render("layouts/sidebar") %>
       </div>
     </div>
+    
   </div>
 </body>
 </html>

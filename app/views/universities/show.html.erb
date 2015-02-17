@@ -2,8 +2,12 @@
   <h3>SIDEBAR</h3>
 <% end %>
 
+
+
 <%= render "shared/uni_category_buttons" %>
 <h3><%= @university.name %></h3>
+<%= "Total Fraternities: #{@fraternity_chapter_count}" %>
+<%= "Total Sororities: #{@sorority_chapter_count}" %>
 
 <table class="table table-striped">
   <thead>
