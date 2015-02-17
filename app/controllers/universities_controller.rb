@@ -1,25 +1,19 @@
 class UniversitiesController < ApplicationController
   before_action :set_university, only: [:show, :edit, :update, :destroy, :discussion, :fraternities, :sororities]
 
-  # GET /universities
-  # GET /universities.json
   def index
     @universities = University.all
   end
 
-  # GET /universities/1
-  # GET /universities/1.json
   def show
     @fraternity_chapters = @university.fraternity_chapters.limit(5)
     @sorority_chapters = @university.sorority_chapters.limit(5)
   end
 
-  # GET /universities/new
   def new
     @university = University.new
   end
 
-  # GET /universities/1/edit
   def edit
   end
 
@@ -35,8 +29,6 @@ class UniversitiesController < ApplicationController
     @chapters = @university.sorority_chapters.joins(:sorority).order("sororities.name")
   end
 
-  # POST /universities
-  # POST /universities.json
   def create
     @university = University.new(university_params)
 
@@ -51,8 +43,6 @@ class UniversitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /universities/1
-  # PATCH/PUT /universities/1.json
   def update
     respond_to do |format|
       if @university.update(university_params)
@@ -65,8 +55,6 @@ class UniversitiesController < ApplicationController
     end
   end
 
-  # DELETE /universities/1
-  # DELETE /universities/1.json
   def destroy
     @university.destroy
     respond_to do |format|
