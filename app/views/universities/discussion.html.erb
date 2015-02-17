@@ -23,7 +23,7 @@
   <tbody>
     <% @discussions.each do |topic| %>
       <tr>
-        <td><%= link_to "#{topic.subject}", university_topic_path(@university, topic) %></td>
+        <td><%= link_to "#{topic.subject}", topic_path(@university, topic) %></td>
     <% end %>
   </tbody>
 </table>

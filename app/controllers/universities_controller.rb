@@ -11,6 +11,8 @@ class UniversitiesController < ApplicationController
     @fraternity_chapters = @university.fraternity_chapters.limit(5)
     @sorority_chapter_count = @university.sorority_chapters.count
     @sorority_chapters = @university.sorority_chapters.limit(5)
+    @discussion_count = @university.topics.count
+    @discussions = @university.topics.order('updated_at DESC').limit(2)
   end
 
   def new
@@ -21,7 +23,7 @@ class UniversitiesController < ApplicationController
   end
 
   def discussion
-    @discussions = Topic.joins(:university).where("universities.id = ?", @university.id)
+    @discussions = @university.topics
   end
 
   def fraternities
