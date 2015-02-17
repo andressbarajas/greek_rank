@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     resources :sorority_chapter, only: [:show] do
       resources :ratings, only: [:new, :create]
     end
+
+    collection do
+      get 'search'
+    end
   end
 
   get 'welcome/index'

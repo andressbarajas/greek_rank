@@ -1,6 +1,14 @@
 class UniversitiesController < ApplicationController
   before_action :set_university, only: [:show, :edit, :update, :destroy, :discussion, :fraternities, :sororities]
 
+  def search
+    if params[:search].present?
+      @universities = University.search(params[:search])
+    else
+      @universities = University.all
+    end
+  end
+
   def index
     @universities = University.all
   end

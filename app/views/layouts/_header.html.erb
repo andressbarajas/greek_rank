@@ -10,9 +10,11 @@
         <li><%= link_to "Sororities", sororities_path %></li>
         <li><%= link_to "Rankings", '#' %></li>
         <li>
-          <%= form_tag "#", class: "navbar-form" do %>
-            <%= text_field_tag :keywords, nil, {:placeholder => "Search"} %>
-            <%= submit_tag "Search" %>
+          <%= form_tag search_universities_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+            <p>
+              <%= text_field_tag :search, params[:search], class: "form-control" %>
+              <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+            <p>
           <% end %>
         </li>
       </ul>

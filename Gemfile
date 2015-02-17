@@ -30,6 +30,8 @@ gem 'spring',        group: :development
 
 gem 'devise', '~> 3.4.1'
 
+gem 'searchkick', '~> 0.8.7'
+
 gem 'will_paginate', '~> 3.0.6'
 
 # Use ActiveModel has_secure_password

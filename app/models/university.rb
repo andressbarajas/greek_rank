@@ -1,4 +1,5 @@
 class University < ActiveRecord::Base
+  searchkick
 
   default_scope { order('name') }
 
