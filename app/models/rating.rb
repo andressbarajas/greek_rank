@@ -7,7 +7,7 @@ class Rating < ActiveRecord::Base
   validates :message, presence: true
   validates :looks, presence: true, :numericality => { greater_than: MIN_STARS, less_than_or_equal_to: MAX_STARS }
   validates :popularity, presence: true, :numericality => { greater_than: MIN_STARS, less_than_or_equal_to: MAX_STARS }
-  validates :clasiness, presence: true, :numericality => { greater_than: MIN_STARS, less_than_or_equal_to: MAX_STARS }
+  validates :classiness, presence: true, :numericality => { greater_than: MIN_STARS, less_than_or_equal_to: MAX_STARS }
   validates :involvement, presence: true, :numericality => { greater_than: MIN_STARS, less_than_or_equal: MAX_STARS }
   validates :socialness, presence: true, :numericality => { greater_than: MIN_STARS, less_than_or_equal_to: MAX_STARS }
   validates :brotherhood, presence: true, :numericality => { greater_than: MIN_STARS, less_than_or_equal_to: MAX_STARS }

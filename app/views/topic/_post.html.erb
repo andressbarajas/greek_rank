@@ -1,7 +1,7 @@
 
 <h3><%= "By: #{post.nick_name}" %></h3>
 <%= "Message: #{post.message}" %>
-<%= "ID: #{post.id} Reply To: #{post.parent_post_id}"%>
+<%= "ID: #{post.id} Reply To: #{post.commentable_id}"%>
 
 <%= form_tag(university_topic_create_post_reply_path(@university, @topic)) do %>
   <%= label_tag(:nick_name, "Nickname:") %>

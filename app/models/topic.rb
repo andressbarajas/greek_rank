@@ -5,5 +5,5 @@ class Topic < ActiveRecord::Base
   validates :message, presence: true
 
   belongs_to :university
-  has_many :posts, dependent: :destroy
+  has_many :posts, as: :commentable, dependent: :destroy
 end

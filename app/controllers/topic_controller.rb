@@ -30,7 +30,7 @@ class TopicController < ApplicationController
     @post = Post.find(topic_params[:post_id])
     @university = University.find(params[:university_id])
     @topic = Topic.find(params[:topic_id])
-    post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message], parent_post_id: @post.id)
+    post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message], commentable_id: @post.id)
     @post.replies << post
     @post.save
     

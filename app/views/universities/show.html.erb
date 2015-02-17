@@ -16,7 +16,7 @@
     <% @fraternity_chapters.each do |chapter| %>
       <tr>
         <td><%= link_to "#{chapter.fraternity.name} - #{chapter.fraternity.letters}", 
-                        university_fraternity_chapter_path(@university, chapter) %></td>
+                        fraternity_chapter_path(chapter) %></td>
     <% end %>
   </tbody>
 </table>
@@ -32,7 +32,7 @@
     <% @sorority_chapters.each do |chapter| %>
       <tr>
         <td><%= link_to "#{chapter.sorority.name} - #{chapter.sorority.letters}", 
-                        university_sorority_chapter_path(@university, chapter) %></td>
+                        sorority_chapter_path(chapter) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -7,6 +7,4 @@ class University < ActiveRecord::Base
 
   has_many :fraternity_chapters
   has_many :sorority_chapters
-
-
 end

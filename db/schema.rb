@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214034547) do
+ActiveRecord::Schema.define(version: 20150217010301) do
 
   create_table "fraternities", force: true do |t|
     t.string   "name",       null: false
@@ -32,26 +32,27 @@ ActiveRecord::Schema.define(version: 20150214034547) do
   add_index "fraternity_chapters", ["university_id"], name: "index_fraternity_chapters_on_university_id"
 
   create_table "posts", force: true do |t|
-    t.integer  "topic_id"
-    t.string   "nick_name",      null: false
-    t.text     "message",        null: false
-    t.integer  "parent_post_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "nick_name",        null: false
+    t.text     "message",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
+  add_index "posts", ["commentable_id", "commentable_type"], name: "index_posts_on_commentable_id_and_commentable_type"
 
   create_table "ratings", force: true do |t|
-    t.string   "nick_name",   null: false
-    t.string   "message",     null: false
-    t.float    "looks",       null: false
-    t.float    "popularity",  null: false
-    t.float    "clasiness",   null: false
-    t.float    "involvement", null: false
-    t.float    "socialness",  null: false
-    t.float    "brotherhood", null: false
-    t.integer  "chapter_id",  null: false
+    t.string   "nick_name",    null: false
+    t.string   "message",      null: false
+    t.float    "looks",        null: false
+    t.float    "popularity",   null: false
+    t.float    "classiness",   null: false
+    t.float    "involvement",  null: false
+    t.float    "socialness",   null: false
+    t.float    "brotherhood",  null: false
+    t.integer  "chapter_id",   null: false
+    t.string   "chapter_type", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -91,5 +92,23 @@ ActiveRecord::Schema.define(version: 20150214034547) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

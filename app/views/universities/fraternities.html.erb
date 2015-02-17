@@ -14,7 +14,7 @@
     <% @chapters.each do |chapter| %>
       <tr>
         <td><%= link_to "#{chapter.fraternity.name} - #{chapter.fraternity.letters}", 
-                        university_fraternity_chapter_path(@university, chapter) %></td>
+                        fraternity_chapter_path(chapter) %></td>
     <% end %>
   </tbody>
 </table>
