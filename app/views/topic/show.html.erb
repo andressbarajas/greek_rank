@@ -1,11 +1,27 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="btn-group btn-group-justified">
+          <%= render "shared/uni_category_buttons" %>
+        </div>
+      </div>
+      <div class="panel-body">
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render "shared/uni_category_buttons" %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= "#{@topic.subject} by #{@topic.nick_name}" %>
+  </div>
+  <div class="panel-body">
+    <%= @topic.message %>
+  </div>
+</div>
 
-<h3><%= "Subject: #{@topic.subject}" %></h3>
-<%= "By: #{@topic.nick_name}" %><br>
-<%= "Message: #{@topic.message}" %>
-
-<%= form_tag(university_topic_create_topic_reply_path(@university, @topic)) do %>
+<%= form_tag(topic_create_topic_reply_path(@topic)) do %>
   <%= label_tag(:nick_name, "Nickname:") %>
   <%= text_field_tag("topic[nick_name]") %>
   <%= label_tag(:message, "Message:") %>

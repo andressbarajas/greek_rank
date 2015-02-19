@@ -1,15 +1,3 @@
-<%= render "shared/uni_category_buttons" %>
-
-<h3><%= "#{@sorority.name} - #{@sorority.letters} Sorority Rating at #{@chapter.university.initials}" %></h3>
-
-Sorority Name: <%= link_to "#{@sorority.name}", @sorority %><br>
-School: <%= link_to "#{@chapter.university.name} - #{@chapter.university.initials}", @chapter.university %><br>
-Chapter Name: <%= "#{@chapter.chapter_name}" %><br><br><br>
-
-<%= link_to 'Rate this Sorority', 
-            new_sorority_chapter_rating_path(@chapter) %>
-
-<% @ratings.each do |rating| %>
-  <%= "By: #{rating.nick_name}" %><br>
-  <%= "Message: #{rating.message}" %><br>
-<% end %>
+<%= render partial: "shared/uni_category_panel", :locals => { category_panel_body: "panel_body" } %>
+<br>
+<%= render "shared/rating"%>

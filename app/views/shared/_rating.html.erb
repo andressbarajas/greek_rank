@@ -1,0 +1,43 @@
+<% @ratings.each do |rating| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="rating-nick-name"><%= "#{rating.nick_name}" %></div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-2 ">
+          <h1>4.2/5.0</h1>
+        </div>
+        <div class="col-md-6">
+          <%= "#{rating.message}" %>
+        </div>
+        <div class="col-md-2">
+          <div class="star-label"><%= "Looks: " %></div> 
+          <div class="star-label"><%= "Popularity:" %></div> 
+          <div class="star-label"><%= "Classiness:" %></div> 
+          <div class="star-label"><%= "Involvement:" %></div> 
+          <div class="star-label"><%= "Socialness:" %></div> 
+          <div class="star-label"><%= "#{@unity_name}:" %></div>
+        </div>
+        <div class="col-md-2">
+          <div class="star-rating" data-score=<%= rating.looks %> > </div>
+          <div class="star-rating" data-score=<%= rating.popularity %> > </div>
+          <div class="star-rating" data-score=<%= rating.classiness %> > </div>
+          <div class="star-rating" data-score=<%= rating.involvement %> > </div>
+          <div class="star-rating" data-score=<%= rating.socialness %> > </div>
+          <div class="star-rating" data-score=<%= rating.brotherhood %> > </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

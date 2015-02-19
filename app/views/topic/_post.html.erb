@@ -1,17 +1,20 @@
-
-<h3><%= "By: #{post.nick_name}" %></h3>
-<%= "Message: #{post.message}" %>
-<%= "ID: #{post.id} Reply To: #{post.commentable_id}"%>
-
-<%= form_tag(university_topic_create_post_reply_path(@university, @topic)) do %>
-  <%= label_tag(:nick_name, "Nickname:") %>
-  <%= text_field_tag("topic[nick_name]") %>
-  <%= label_tag(:message, "Message:") %>
-  <%= text_area_tag("topic[message]") %>
-  <%= submit_tag("Reply") %>
-  <%= hidden_field_tag("topic[post_id]", post.id) %>
-<% end %>
- 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= "Comment by: #{post.nick_name}" %>
+  </div>
+  <div class="panel-body">
+    <%= post.message %>
+    <%= form_tag(topic_create_post_reply_path(@topic), university_id: @topic.university) do %>
+      <%= label_tag(:nick_name, "Nickname:") %>
+      <%= text_field_tag("topic[nick_name]") %>
+      <%= label_tag(:message, "Message:") %>
+      <%= text_area_tag("topic[message]") %>
+      <%= submit_tag("Reply") %>
+      <%= hidden_field_tag("topic[post_id]", post.id) %>
+    <% end %>
+  </div>
+</div>
+   
 <% unless post.replies.empty? %>
   <%= render :partial => 'post', :collection => post.replies %>
 <% end %>

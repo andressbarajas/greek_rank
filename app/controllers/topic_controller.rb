@@ -2,39 +2,36 @@ class TopicController < ApplicationController
   before_action :set_topic, only: [:show]
 
   def show
-    @university = University.find(params[:university_id])
+    @university = @topic.university
   end
 
   def create
     @university = University.find(params[:university_id])
-    @topic = Topic.new(subject: topic_params[:subject], 
+    @topic = @university.topics.build(subject: topic_params[:subject], 
                        nick_name: topic_params[:nick_name], 
-                       message: topic_params[:message],
-                       university_id: @university.id)
+                       message: topic_params[:message])
     @topic.save
 
-    redirect_to university_topic_path(@university, @topic)
+    redirect_to topic_path(@topic)
   end
 
   def create_topic_reply
-    @university = University.find(params[:university_id])
     @topic = Topic.find(params[:topic_id])
     post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message])
     @topic.posts << post
     @topic.save
     
-    redirect_to university_topic_path(@university, @topic)
+    redirect_to topic_path(@topic)
   end
 
   def create_post_reply
     @post = Post.find(topic_params[:post_id])
-    @university = University.find(params[:university_id])
     @topic = Topic.find(params[:topic_id])
     post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message], commentable_id: @post.id)
     @post.replies << post
     @post.save
     
-    redirect_to university_topic_path(@university, @topic)
+    redirect_to topic_path(@topic)
   end
 
   private

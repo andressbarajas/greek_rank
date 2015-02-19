@@ -6,17 +6,29 @@
   <%= text_area_tag('rating[message]') %><br>
 
   <%= label_tag(:looks, "Looks:") %>
-  <%= number_field_tag('rating[looks]', nil) %>
+  <div class="star-rating" id="looks" data-score="1"></div>
   <%= label_tag(:popularity, "Popularity:") %>
-  <%= number_field_tag('rating[popularity]', nil) %>
+  <div class="star-rating" id="popularity" data-score="1"></div>
   <%= label_tag(:classiness, "Classiness:") %>
-  <%= number_field_tag('rating[classiness]', nil) %>
+  <div class="star-rating" id="classiness" data-score="1"></div>
   <%= label_tag(:involvement, "Involvement:") %>
-  <%= number_field_tag('rating[involvement]', nil) %>
+  <div class="star-rating" id="involvement" data-score="1"></div>
   <%= label_tag(:socialness, "Socialness:") %>
-  <%= number_field_tag('rating[socialness]', nil) %>
+  <div class="star-rating" id="socialness" data-score="1"></div>
   <%= label_tag(:brotherhood, "Brotherhood:") %>
-  <%= number_field_tag('rating[brotherhood]', nil) %><br>
+  <div class="star-rating" id="brotherhood" data-score="1"></div>
 
   <%= submit_tag("Rate") %>
 <% end %>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    scoreName: function(){
+      return 'rating['+$(this).attr('id')+']';
+    }
+  });
+</script>

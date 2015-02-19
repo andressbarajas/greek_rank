@@ -1,13 +1,6 @@
-<div style="float:left; margin-right: 15px">
-  <%= button_to "Overview", university_path(@university), method: 'get', class: 'btn btn-mini' %>
-</div>
-<div style="float:left; margin-right: 15px">
-  <%= button_to "Discussion", discussion_university_path(@university), method: 'get', class: 'btn btn-mini'%>
-</div>
-<div style="float:left; margin-right: 15px">
-  <%= button_to "Fraternities", fraternities_university_path(@university), method: 'get', class: 'btn btn-mini' %>
-</div>
-<div style="float:left; margin-right: 15px">
-  <%= button_to "Sororities", sororities_university_path(@university), method: 'get', class: 'btn btn-mini' %>
-</div>
-<div style="clear:both;"></div>
+<ul class="nav nav-pills">
+  <%= nav_pill_link "Overview", university_path(@university) %>
+  <%= nav_pill_link "Discussion", discussion_university_path(@university) %>
+  <%= nav_pill_link "Fraternities", fraternities_university_path(@university) %>
+  <%= nav_pill_link "Sororities", sororities_university_path(@university) %>
+</ul>

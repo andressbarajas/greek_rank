@@ -1,0 +1,19 @@
+<h3 class="chapter-ratings"><%= "#{@sorority.name} - #{@sorority.letters} Sorority Ratings at #{@chapter.university.initials}" %></h3>
+<div style="margin-left: 30px;">
+  Sorority Name: <%= link_to "#{@sorority.name}", @sorority %><br>
+  School: <%= link_to "#{@chapter.university.name} - #{@chapter.university.initials}", @chapter.university %><br>
+  Chapter Name: <%= "#{@chapter.chapter_name}" %>
+</div>
+<div class="row">
+  <br>
+  <div class="col-xs-3 col-xs-offset-1">
+    <%= render "shared/progress_bar_labels" %>
+  </div>
+  <div class="col-xs-6">
+    <%= render "shared/chapter_rating_progress" %>
+  </div>
+</div>
+<br>
+<div class="rate-chapter-button">
+  <%= link_to 'Rate this Sorority', new_sorority_chapter_rating_path(@chapter), class: "btn btn-danger" %>
+</div>

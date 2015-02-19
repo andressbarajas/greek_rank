@@ -1,2 +1,42 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.progress {
+  margin-bottom: 5px;
+}
+
+.progress-label {
+  margin-bottom: 5px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.star-label {
+  text-align: right;
+  font-weight: bold;
+}
+
+.rating-nick-name {
+  font-weight: bold;
+}
+
+.category-button {
+  margin-right: 15px
+}
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+}
+
+.nav-pills {
+    text-align:center;
+}
+
+h3.chapter-ratings {
+  text-align: center;
+}
+
+.rate-chapter-button {
+  text-align: center;
+}

@@ -2,17 +2,20 @@
   <h3>SIDEBAR</h3>
 <% end %>
 
+<%= render partial: "shared/uni_category_panel", :locals => { category_panel_body: "uni_panel_body" } %>
+<br>
 
-
-<%= render "shared/uni_category_buttons" %>
-<h3><%= @university.name %></h3>
-<%= "Total Fraternities: #{@fraternity_chapter_count}" %><br>
-<%= "Total Sororities: #{@sorority_chapter_count}" %><br>
-<%= "Total Discussions: #{@discussion_count}"%><br><br>
-
-Latest Discussions: <br>
+Latest Discussions: <br><br>
 <% @discussions.each do |topic| %>
-  <%= topic.subject %><br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= link_to "#{topic.subject}", topic_path(topic) %>
+      <%= " by #{topic.nick_name}" %>
+    </div>
+    <div class="panel-body">
+      <%= topic.message %>
+    </div>
+  </div>
 <% end %>
 
 
