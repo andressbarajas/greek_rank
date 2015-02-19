@@ -31,7 +31,7 @@
 <% @discussions.each do |topic| %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <%= link_to "#{topic.subject}", topic_path(@university, topic) %>
+      <%= link_to "#{topic.subject}", topic_path(topic) %>
       <%= " by #{topic.nick_name}" %>
     </div>
     <div class="panel-body">
