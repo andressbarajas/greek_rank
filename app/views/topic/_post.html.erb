@@ -4,17 +4,55 @@
   </div>
   <div class="panel-body">
     <%= post.message %>
-    <%= form_tag(topic_create_post_reply_path(@topic), university_id: @topic.university) do %>
-      <%= label_tag(:nick_name, "Nickname:") %>
-      <%= text_field_tag("topic[nick_name]") %>
-      <%= label_tag(:message, "Message:") %>
-      <%= text_area_tag("topic[message]") %>
-      <%= submit_tag("Reply") %>
-      <%= hidden_field_tag("topic[post_id]", post.id) %>
+  </div>
+  <div class="panel-footer">
+
+    <% if !post.replies.empty? %>
+      <%= link_to "#show_replies_#{post.id}", 
+                  class: "btn btn-info btn-sm", 
+                  "data-toggle" => "collapse", 
+                  "aria-expanded" => false,
+                  "aria-controls" => "show_replies_#{post.id}" do %>
+        Show Replies <span class="badge"><%= post.replies.count %></span>
+      <% end %>
     <% end %>
+
+    <%= link_to "Reply",
+                "#reply_#{post.id}", 
+                class: "btn btn-primary btn-sm",
+                "data-toggle" => "collapse", 
+                "aria-expanded" => false,
+                "aria-controls" => "reply_#{post.id}" %>
   </div>
 </div>
-   
-<% unless post.replies.empty? %>
-  <%= render :partial => 'post', :collection => post.replies %>
-<% end %>
+  
+<ul> 
+  <%= content_tag(:div, class: "collapse", id: "show_replies_#{post.id}") do %>
+    <% post.replies.each do |reply| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= "Comment by: #{reply.nick_name}" %>
+        </div>
+        <div class="panel-body">
+          <%= reply.message %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= content_tag(:div, class: "collapse", id: "reply_#{post.id}") do %>
+    <%= form_tag(topic_create_post_reply_path(@topic)) do %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= label_tag(:nick_name, "Nickname:") %>
+          <%= text_field_tag("topic[nick_name]", nil, size: 40) %>
+        </div>
+        <div class="panel-body">
+          <%= label_tag(:message, "Message:") %>
+          <%= text_area_tag("topic[message]", nil, rows: 10, cols: 60) %><br>
+          <%= submit_tag("Reply", class: "btn btn-success") %>
+          <%= hidden_field_tag("topic[post_id]", post.id) %>
+        </div>
+    <% end %>
+  <% end %>
+</ul>

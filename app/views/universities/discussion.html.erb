@@ -1,19 +1,8 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="btn-group btn-group-justified">
-          <%= render "shared/uni_category_buttons" %>
-        </div>
-      </div>
-      <div class="panel-body">
-        <h3><%= "#{@university.name} - #{@university.initials} Discussion"%></h3>
-      </div>
-    </div>
-  </div>
-</div>
+
+<%= render partial: "shared/uni_category_panel", :locals => { category_panel_body: "disc_panel_body" } %>
 
 <%= link_to 'New Post', '#', class: "btn btn-primary btn-lg", id: "show_post_form" %>
+
 <div class="hidden" id="post_form">
   <%= form_tag(university_topic_index_path(@university)) do %>
     <%= label_tag(:nick_name, "Nickname:") %><br>

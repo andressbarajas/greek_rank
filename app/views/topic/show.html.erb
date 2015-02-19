@@ -1,16 +1,4 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="btn-group btn-group-justified">
-          <%= render "shared/uni_category_buttons" %>
-        </div>
-      </div>
-      <div class="panel-body">
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: "shared/uni_category_panel", :locals => { category_panel_body: nil } %>
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -19,18 +7,25 @@
   <div class="panel-body">
     <%= @topic.message %>
   </div>
+  <div class="panel-footer">
+    <%= link_to "Reply to Topic", topic_path(@topic, anchor: "reply_topic"), class: "btn btn-warning btn-sm" %>
+  </div>
 </div>
-
-<%= form_tag(topic_create_topic_reply_path(@topic)) do %>
-  <%= label_tag(:nick_name, "Nickname:") %>
-  <%= text_field_tag("topic[nick_name]") %>
-  <%= label_tag(:message, "Message:") %>
-  <%= text_area_tag("topic[message]") %>
-  <%= submit_tag("Reply to Topic") %>
-<% end %>
  
 <ul>
   <%= render :partial => 'post', :collection => @topic.posts %>
 </ul>
+
+<div id="reply_topic">
+  <h3>Reply to Topic</h3>
+
+  <%= form_tag(topic_create_topic_reply_path(@topic)) do %>
+    <%= label_tag(:nick_name, "Nickname:") %> <br>
+    <%= text_field_tag("topic[nick_name]", nil, size: 40) %><br>
+    <%= label_tag(:message, "Message:") %><br>
+    <%= text_area_tag("topic[message]", nil, rows: 10, cols: 60) %><br>
+    <%= submit_tag("Reply to Topic", class: "btn btn-success") %>
+  <% end %>
+</div>
 
 
