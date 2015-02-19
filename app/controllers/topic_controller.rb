@@ -6,6 +6,7 @@ class TopicController < ApplicationController
   end
 
   def create
+    binding.pry
     @university = University.find(params[:university_id])
     @topic = @university.topics.build(subject: topic_params[:subject], 
                        nick_name: topic_params[:nick_name], 

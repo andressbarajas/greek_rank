@@ -13,20 +13,25 @@
   </div>
 </div>
 
-<%= form_tag(university_topic_index_path(@university)) do %>
-  <%= label_tag(:nick_name, "Nickname:") %>
-  <%= text_field_tag("topic[nick_name]") %>
-  <%= label_tag(:subject, "Subject:") %>
-  <%= text_field_tag("topic[subject]") %>
-  <%= label_tag(:message, "Message:") %>
-  <%= text_area_tag("topic[message]") %>
-  <%= submit_tag("New") %>
-<% end %>
+<%= link_to 'New Post', '#', class: "btn btn-primary btn-lg", id: "show_post_form" %>
+<div class="hidden" id="post_form">
+  <%= form_tag(university_topic_index_path(@university)) do %>
+    <%= label_tag(:nick_name, "Nickname:") %><br>
+    <%= text_field_tag("topic[nick_name]", nil, size: 40) %><br>
+    <%= label_tag(:subject, "Subject:") %><br>
+    <%= text_field_tag("topic[subject]", nil, size: 50) %><br>
+    <%= label_tag(:message, "Message:") %><br>
+    <%= text_area_tag("topic[message]", nil, rows: 10, cols: 60) %><br>
+    <%= submit_tag("Submit", class: "btn btn-success") %>
+  <% end %>
+</div>
+
+<br><br>
 
 <% @discussions.each do |topic| %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <%= link_to "#{topic.subject}", topic_path(topic) %>
+      <%= link_to "#{topic.subject}", topic_path(@university, topic) %>
       <%= " by #{topic.nick_name}" %>
     </div>
     <div class="panel-body">
@@ -34,4 +39,14 @@
     </div>
   </div>
 <% end %>
+
+<script>
+  $(function() {
+    $('a#show_post_form').click(function(event){
+      event.preventDefault();
+      $('div#post_form').removeClass("hidden");
+      $(this).addClass("hidden");
+    });
+  });   
+</script>
   
