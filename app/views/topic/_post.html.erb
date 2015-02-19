@@ -9,7 +9,7 @@
 
     <% if !post.replies.empty? %>
       <%= link_to "#show_replies_#{post.id}", 
-                  class: "btn btn-info btn-sm", 
+                  class: "btn btn-info btn-xs", 
                   "data-toggle" => "collapse", 
                   "aria-expanded" => false,
                   "aria-controls" => "show_replies_#{post.id}" do %>
@@ -18,8 +18,8 @@
     <% end %>
 
     <%= link_to "Reply",
-                "#reply_#{post.id}", 
-                class: "btn btn-primary btn-sm",
+                topic_path(@topic, anchor: "reply_#{post.id}"), 
+                class: "btn btn-primary btn-xs anchor-reply",
                 "data-toggle" => "collapse", 
                 "aria-expanded" => false,
                 "aria-controls" => "reply_#{post.id}" %>

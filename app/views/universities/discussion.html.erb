@@ -18,7 +18,7 @@
 <br><br>
 
 <% @discussions.each do |topic| %>
-  <div class="panel panel-default">
+  <div class="panel panel-info">
     <div class="panel-heading">
       <%= link_to "#{topic.subject}", topic_path(topic) %>
       <%= " by #{topic.nick_name}" %>
