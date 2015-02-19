@@ -21,9 +21,9 @@ private
   def check_link_path(link_path)
     if current_page?(link_path)
       true
-    elsif /\/universities\/\d\/fraternities/.match(link_path) && params[:controller] == "fraternity_chapter"
+    elsif /\/universities\/\d+\/fraternities/.match(link_path) && params[:controller] == "fraternity_chapter"
       true
-    elsif /\/universities\/\d\/sororities/.match(link_path) && params[:controller] == "sorority_chapter"
+    elsif /\/universities\/\d+\/sororities/.match(link_path) && params[:controller] == "sorority_chapter"
       true
     else
       false
