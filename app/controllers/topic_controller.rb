@@ -20,6 +20,7 @@ class TopicController < ApplicationController
     post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message])
     @topic.posts << post
     @topic.save
+    @topic.touch
     
     redirect_to topic_path(@topic)
   end
@@ -30,6 +31,7 @@ class TopicController < ApplicationController
     post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message], commentable_id: @post.id)
     @post.replies << post
     @post.save
+    @topic.touch
     
     redirect_to topic_path(@topic)
   end
