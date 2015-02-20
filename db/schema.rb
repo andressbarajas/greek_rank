@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217193450) do
+ActiveRecord::Schema.define(version: 20150219231456) do
 
   create_table "fraternities", force: true do |t|
     t.string   "name",       null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150217193450) do
     t.string   "chapter_type", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "average"
   end
 
   create_table "sororities", force: true do |t|

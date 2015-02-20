@@ -7,6 +7,12 @@ class RatingsController < ApplicationController
 
   def create
     @rating = @chapter.ratings.build(rating_params)
+    @rating.average = ((@rating.looks +
+                      @rating.popularity +
+                      @rating.classiness +
+                      @rating.involvement +
+                      @rating.socialness +
+                      @rating.brotherhood)/6).round(1)
     @rating.save
 
     redirect_to @chapter

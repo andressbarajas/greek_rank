@@ -9,21 +9,13 @@ class FraternityChapterController < ApplicationController
 
     @unity_name = "Brotherhood"
 
-    @looks_percentage = @ratings.average(:looks).round(2) * 20
-    @popularity_percentage = @ratings.average(:popularity).round(2) * 20
-    @classiness_percentage = @ratings.average(:classiness).round(2) * 20
-    @involvement_percentage = @ratings.average(:involvement).round(2) * 20
-    @social_life_percentage = @ratings.average(:socialness).round(2) * 20
-    @unity_percentage = @ratings.average(:brotherhood).round(2) * 20
-
-    overall_sum = @ratings.average(:looks) + 
-                  @ratings.average(:popularity) + 
-                  @ratings.average(:classiness) + 
-                  @ratings.average(:involvement) + 
-                  @ratings.average(:socialness) + 
-                  @ratings.average(:brotherhood)
-
-    @overall_percentage = ((overall_sum/6) * 20).round(2)
+    @overall_percentage = (@ratings.average(:average)*20).round(1)
+    @looks_percentage = (@ratings.average(:looks)*20).round(1)
+    @popularity_percentage = (@ratings.average(:popularity)*20).round(1)
+    @classiness_percentage = (@ratings.average(:classiness)*20).round(1)
+    @involvement_percentage = (@ratings.average(:involvement)*20).round(1)
+    @social_life_percentage = (@ratings.average(:socialness)*20).round(1)
+    @unity_percentage = (@ratings.average(:brotherhood)*20).round(1) 
   end
 
   private

@@ -1,12 +1,12 @@
 <% @ratings.each do |rating| %>
-  <div class="panel panel-info">
+  <div class="panel panel-default">
     <div class="panel-heading">
       <div class="rating-nick-name"><%= "#{rating.nick_name}" %></div>
     </div>
     <div class="panel-body">
       <div class="row">
         <div class="col-md-2 ">
-          <h1>4.2/5.0</h1>
+          <h1><%= "#{rating.average}/5.0" %></h1>
         </div>
         <div class="col-md-6">
           <%= "#{rating.message}" %>
