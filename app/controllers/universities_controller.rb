@@ -8,9 +8,9 @@ class UniversitiesController < ApplicationController
 
   def show
     @fraternity_chapter_count = @university.fraternity_chapters.count
-    @fraternity_chapters = @university.fraternity_chapters.limit(5)
+    @fraternity_chapters = @university.fraternity_chapters.order(overall_percentage: :desc).limit(5)
     @sorority_chapter_count = @university.sorority_chapters.count
-    @sorority_chapters = @university.sorority_chapters.limit(5)
+    @sorority_chapters = @university.sorority_chapters.order(overall_percentage: :desc).limit(5)
     @discussion_count = @university.topics.count
     @discussions = @university.topics.order('updated_at DESC').limit(2)
   end

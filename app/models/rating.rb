@@ -13,4 +13,10 @@ class Rating < ActiveRecord::Base
   validates :brotherhood, presence: true, :numericality => { greater_than: MIN_STARS, less_than_or_equal_to: MAX_STARS }
 
   belongs_to :chapter, polymorphic: true
+
+  def calculate_average
+    total = looks + popularity + classiness + involvement + socialness + brotherhood
+    self.average = (total/6).round(1)
+    save
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219231456) do
+ActiveRecord::Schema.define(version: 20150220092933) do
 
   create_table "fraternities", force: true do |t|
     t.string   "name",       null: false
@@ -23,9 +23,16 @@ ActiveRecord::Schema.define(version: 20150219231456) do
   create_table "fraternity_chapters", force: true do |t|
     t.integer  "university_id"
     t.integer  "fraternity_id"
-    t.string   "chapter_name",  null: false
+    t.string   "chapter_name",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "overall_percentage"
+    t.float    "looks_percentage"
+    t.float    "popularity_percentage"
+    t.float    "classiness_percentage"
+    t.float    "involvement_percentage"
+    t.float    "social_life_percentage"
+    t.float    "unity_percentage"
   end
 
   add_index "fraternity_chapters", ["fraternity_id"], name: "index_fraternity_chapters_on_fraternity_id"
@@ -68,9 +75,16 @@ ActiveRecord::Schema.define(version: 20150219231456) do
   create_table "sorority_chapters", force: true do |t|
     t.integer  "university_id"
     t.integer  "sorority_id"
-    t.string   "chapter_name",  null: false
+    t.string   "chapter_name",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "overall_percentage"
+    t.float    "looks_percentage"
+    t.float    "popularity_percentage"
+    t.float    "classiness_percentage"
+    t.float    "involvement_percentage"
+    t.float    "social_life_percentage"
+    t.float    "unity_percentage"
   end
 
   add_index "sorority_chapters", ["sorority_id"], name: "index_sorority_chapters_on_sorority_id"

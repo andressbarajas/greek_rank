@@ -15,6 +15,6 @@ class AddAverageToRatings < ActiveRecord::Migration
   end
 
   def down
-    remove_column :ratings, :average, :float
+    remove_column :ratings, :average
   end
 end
