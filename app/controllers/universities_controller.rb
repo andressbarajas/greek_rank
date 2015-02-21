@@ -23,7 +23,7 @@ class UniversitiesController < ApplicationController
   end
 
   def discussion
-    @discussions = @university.topics
+    @discussions = @university.topics.order('updated_at DESC')
   end
 
   def fraternities

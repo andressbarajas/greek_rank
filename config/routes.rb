@@ -13,17 +13,17 @@ Rails.application.routes.draw do
       get 'sororities'
     end
 
-    resources :topic, only: [:show, :create] do
+    resources :topic, except: [:index, :update] do
       post 'create_topic_reply'
       post 'create_post_reply'
     end
     
-    resources :fraternity_chapter, only: [:show] do
-      resources :ratings, only: [:new, :create]
+    resources :fraternity_chapters, except: [:index] do
+      resources :ratings, only: [:new, :create, :destroy]
     end
 
-    resources :sorority_chapter, only: [:show] do
-      resources :ratings, only: [:new, :create]
+    resources :sorority_chapters, except: [:index] do
+      resources :ratings, only: [:new, :create, :destroy]
     end
 
     collection do

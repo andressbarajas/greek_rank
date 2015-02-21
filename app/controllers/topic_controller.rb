@@ -1,5 +1,5 @@
 class TopicController < ApplicationController
-  before_action :set_topic, only: [:show]
+  before_action :set_topic, only: [:show, :destroy]
 
   def show
     @university = @topic.university
@@ -8,21 +8,35 @@ class TopicController < ApplicationController
   def create
     @university = University.find(params[:university_id])
     @topic = @university.topics.build(subject: topic_params[:subject], 
-                       nick_name: topic_params[:nick_name], 
-                       message: topic_params[:message])
-    @topic.save
-
-    redirect_to topic_path(@topic)
+                                      nick_name: topic_params[:nick_name], 
+                                      message: topic_params[:message])
+    respond_to do |format|
+      if @topic.save
+        @topic.touch
+        format.html { redirect_to topic_path(@topic) }
+        format.json { render :show, status: :created, location: @topic }
+      else
+        format.html { render discussion_university_path(@university) }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create_topic_reply
     @topic = Topic.find(params[:topic_id])
     post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message])
     @topic.posts << post
-    @topic.save
-    @topic.touch
-    
-    redirect_to topic_path(@topic)
+
+    respond_to do |format|
+      if @topic.save
+        @topic.touch
+        format.html { redirect_to topic_path(@topic) }
+        format.json { render :show, status: :created, location: @topic }
+      else
+        format.html { render topic_path(@topic) }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create_post_reply
@@ -30,10 +44,27 @@ class TopicController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     post = Post.new(nick_name: topic_params[:nick_name], message: topic_params[:message], commentable_id: @post.id)
     @post.replies << post
-    @post.save
-    @topic.touch
+
+    respond_to do |format|
+      if @post.save
+        @topic.touch
+        format.html { redirect_to topic_path(@topic) }
+        format.json { render :show, status: :created, location: @topic }
+      else
+        format.html { render topic_path(@topic) }
+        format.json { render json: @topic.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @university = @topic.university
+    @topic.destroy
     
-    redirect_to topic_path(@topic)
+    respond_to do |format|
+      format.html { redirect_to discussion_university_path(@university), notice: 'Topic was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

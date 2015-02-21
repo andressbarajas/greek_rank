@@ -1,0 +1,24 @@
+<%= form_for [@university, @chapter] do |f| %>
+  <% if @chapter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@chapter.errors.count, "error") %> prohibited this university from being saved:</h2>
+
+      <ul>
+      <% @chapter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label "Name" %>
+  <%= f.text_field :chapter_name %><br>
+  <%= f.label "Fraternity" %>
+  <%= f.collection_select(:fraternity_id, Fraternity.all, :id, :name) %><br>
+  <%= f.label "University" %>
+  <%= f.collection_select(:university_id, University.all, :id, :name) %><br>
+
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+<% end %>

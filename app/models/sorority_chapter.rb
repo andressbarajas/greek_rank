@@ -1,9 +1,18 @@
 class SororityChapter < ActiveRecord::Base
 
+  validate :one_sorority_chapter_per_university, :on => :create
+
   belongs_to :university
   belongs_to :sorority
 
   has_many :ratings, as: :chapter, dependent: :destroy
+
+  def one_sorority_chapter_per_university
+    if SororityChapter.exists?(university_id: self.university_id, sorority_id: self.sorority_id)
+      errors.add(:university_id, 'already has an existing #{self.sorority.name} chapter')
+      errors.add(:sorority_id, 'already has a chapter at #{self.university.name}')
+    end
+  end
 
   def calculate_percentages
     ratings = Rating.where(chapter_id: self.id, chapter_type: "SororityChapter")

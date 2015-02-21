@@ -8,7 +8,7 @@ class SororitiesController < ApplicationController
 
   def show
     university_ids = SororityChapter.where(sorority_id: @sorority.id)
-                                    .order(overall_percentage: :desc)
+                                    .order(overall_percentage: :desc).uniq
                                     .limit(5).map(&:university_id)
     unis = University.where(id: university_ids).group_by(&:id)
     @universities = university_ids.map { |id| unis[id].first }

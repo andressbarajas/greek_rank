@@ -1,1 +1,4 @@
 <h3><%= "#{@university.name} - #{@university.initials} Sororities"%></h3>
+<% if current_user.admin? %>
+  <%= link_to "Create Sorority Chapter", new_university_sorority_chapter_path(@university) %>
+<% end %>

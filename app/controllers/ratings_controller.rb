@@ -2,17 +2,38 @@ class RatingsController < ApplicationController
   before_filter :find_chapter
 
   def new
-    @rating = @chapter.ratings.build
+    @rating = Rating.new
+  end
+
+  def edit
   end
 
   def create
     @rating = @chapter.ratings.build(rating_params)
     @rating.calculate_average
-    @rating.save
+
+    respond_to do |format|
+      if @rating.save
+        @chapter.calculate_percentages
+        @chapter.save
+        format.html { redirect_to @chapter, notice: 'Chapter rating was successfully created.' }
+        format.json { render :show, status: :created, location: @chapter }
+      else
+        format.html { render :new }
+        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @rating.destroy
     @chapter.calculate_percentages
     @chapter.save
 
-    redirect_to @chapter
+    respond_to do |format|
+      format.html { redirect_to @chapter, notice: 'Chapter rating was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
