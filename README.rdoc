@@ -1,9 +1,16 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This codebase was constructed for self education purposes. 
 
-Things you may want to cover:
+It is an attempt to get more acquitted with bootstrap(front-end in general)
+and to build a website WITHOUT a step-by-step guide.
+
+It is a replica of www.greekrank.com
+
+
+Ruby 2.0 
+
+Rails 4.1.6
 
 * Ruby version
 

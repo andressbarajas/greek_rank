@@ -18,7 +18,6 @@
   <%= link_to 'Rate this Sorority', new_sorority_chapter_rating_path(@chapter), class: "btn btn-success" %>
   <% if current_user.admin? %>
     <br>
-    <%= link_to 'Delete this Chapter', sorority_chapter_path(@chapter), method: :delete, :data => {:confirm => 'Are you sure?'} %>
     <%= link_to 'Edit this Chapter', edit_sorority_chapter_path(@chapter) %>
   <% end %>
 </div>

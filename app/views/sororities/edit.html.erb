@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @sorority %> |
-<%= link_to 'Back', sororities_path %>
+<%= link_to 'Back', sororities_path %> |
+<%= link_to 'Delete', sorority_path, method: :delete, data: { confirm: 'Are you sure?' } %>
