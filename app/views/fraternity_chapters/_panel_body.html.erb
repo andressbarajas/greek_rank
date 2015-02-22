@@ -15,7 +15,7 @@
 </div>
 <br>
 <div class="rate-chapter-button">
-  <%= link_to 'Rate this Fraternity', new_fraternity_chapter_rating_path(@chapter), class: "btn btn-danger" %>
+  <%= link_to 'Rate this Fraternity', new_fraternity_chapter_rating_path(@chapter), class: "btn btn-success" %>
   <% if current_user.admin? %>
     <br>
     <%= link_to 'Delete this Chapter', fraternity_chapter_path(@chapter), method: :delete, :data => {:confirm => 'Are you sure?'} %>
