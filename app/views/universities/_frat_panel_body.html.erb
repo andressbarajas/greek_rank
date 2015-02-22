@@ -1,4 +1,4 @@
-<h3 class="chapter-ratings"><%= "#{@university.name} - #{@university.initials} Fraternities"%></h3>
+<h5 class="text-center"><%= "#{@university.name} - #{@university.initials} Fraternities"%></h5>
 
 <% if current_user.admin? %>
   <%= link_to "Create Fraternity Chapter", new_university_fraternity_chapter_path(@university) %>

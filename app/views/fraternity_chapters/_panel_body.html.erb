@@ -1,4 +1,4 @@
-<h3 class="chapter-ratings"><%= "#{@fraternity.name} - #{@fraternity.letters} Fraternity Ratings at #{@university.initials}" %></h3>
+<h3 class="text-center"><%= "#{@fraternity.name} - #{@fraternity.letters} Fraternity Ratings at #{@university.initials}" %></h3>
 <div style="margin-left: 30px;">
   Fraternity Name: <%= link_to "#{@fraternity.name}", @fraternity %><br>
   School: <%= link_to "#{@university.name} - #{@university.initials}", @chapter.university %><br>
@@ -14,7 +14,7 @@
   </div>
 </div>
 <br>
-<div class="rate-chapter-button">
+<div class="text-center">
   <%= link_to 'Rate this Fraternity', new_fraternity_chapter_rating_path(@chapter), class: "btn btn-success" %>
   <% if current_user.admin? %>
     <br>

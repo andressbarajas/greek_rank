@@ -1,6 +1,11 @@
 class UniversitiesController < ApplicationController
+  layout "application", only: [:index]
+
   before_action :set_university, except: [:index, :new, :create, :search] 
   before_filter :verify_is_admin, only: [:new, :edit, :create, :update, :destroy]
+
+  # Sidebar
+  before_filter :uni_sidebar_vars, except: :index
 
   def index
     @universities = University.all
@@ -77,6 +82,11 @@ class UniversitiesController < ApplicationController
   end
 
   private
+
+    def uni_sidebar_vars
+      @uni_discs = @university.topics.order('updated_at DESC').limit(3)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_university
       @university = University.find(params[:id])
