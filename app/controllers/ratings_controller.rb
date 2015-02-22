@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-  before_filter :find_chapter
+  before_filter :find_chapter, except: [:destroy]
 
   def new
     @rating = Rating.new
@@ -26,6 +26,8 @@ class RatingsController < ApplicationController
   end
 
   def destroy
+    @rating = Rating.find(params[:id])
+    @chapter = @rating.chapter
     @rating.destroy
     @chapter.calculate_percentages
     @chapter.save

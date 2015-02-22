@@ -1,6 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <%= "Comment by: #{post.nick_name}" %>
+    <% if current_user.admin? %>
+      | <%= link_to "Delete this post", topic_delete_post_path(@topic, post_id: post.id), 
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </div>
   <div class="panel-body">
     <%= post.message %>
@@ -32,6 +36,10 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <%= "Comment by: #{reply.nick_name}" %>
+          <% if current_user.admin? %>
+            | <%= link_to "Delete this post", topic_delete_post_path(@topic, post_id: reply.id), 
+                          method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
         <div class="panel-body">
           <%= reply.message %>

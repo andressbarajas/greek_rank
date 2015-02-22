@@ -57,6 +57,17 @@ class TopicController < ApplicationController
     end
   end
 
+  def delete_post
+    @post = Post.find(params[:post_id])
+    @topic = Topic.find(@post.commentable_id)
+    @post.destroy
+
+    respond_to do |format|
+      format.html { redirect_to topic_path(@topic), notice: 'Post was deleted' }
+      format.json { rhead :no_content }
+    end
+  end
+
   def destroy
     @university = @topic.university
     @topic.destroy

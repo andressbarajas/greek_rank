@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
 
     resources :topic, except: [:index, :update] do
+      delete 'delete_post'
       post 'create_topic_reply'
       post 'create_post_reply'
     end

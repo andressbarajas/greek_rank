@@ -2,6 +2,9 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <div class="rating-nick-name"><%= "#{rating.nick_name}" %></div>
+      <% if current_user.admin? %>
+        <%= link_to "Delete this rating", rating_path(rating), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </div>
     <div class="panel-body">
       <div class="row">

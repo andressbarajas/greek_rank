@@ -2,17 +2,16 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <%= "#{@topic.subject} by #{@topic.nick_name}" %>
+    <%= "#{@topic.subject} by #{@topic.nick_name}" %> 
+    <% if current_user.admin? %>
+      | <%= link_to "Delete this topic", topic_path(@topic), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </div>
   <div class="panel-body">
     <%= @topic.message %>
   </div>
   <div class="panel-footer">
     <%= link_to "Reply to Topic", topic_path(@topic, anchor: "reply_topic"), class: "btn btn-warning btn-xs" %>
-    <% if current_user.admin? %>
-      <br>
-      <%= link_to "Delete this topic", topic_path(@topic), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
   </div>
 </div>
  
