@@ -32,3 +32,26 @@
 .nav-pills > li > a:hover {
   background-color: white;
 }
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #1792EA;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #1792EA;
+}
+
+.spacer50 { 
+  height: 50px; 
+  width: 100%; 
+  font-size: 0; 
+  margin: 0; 
+  padding: 0; 
+  border: 0; 
+  display: block; 
+}
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

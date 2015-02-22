@@ -1,12 +1,8 @@
 module ApplicationHelper
 
-  # def nav_link(link_text, link_path)
-  #   class_name = current_page?(link_path) ? 'current' : nil
-
-  #   content_tag(:li, :class => class_name) do
-  #     link_to link_text, link_path
-  #   end
-  # end
+  def truncate_sidebar_link(link)
+    truncate(link, length: 40)
+  end
 
   def nav_pill_link(link_text, link_path)
     class_name = check_link_path(link_path) ? 'active' : ''
