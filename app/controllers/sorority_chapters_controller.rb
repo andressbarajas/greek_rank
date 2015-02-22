@@ -1,6 +1,11 @@
 class SororityChaptersController < ApplicationController
+  layout "universities", only: [:show]
+  
   before_action :set_sorority_chapter, only: [:show, :edit, :update, :destroy]
   before_filter :verify_is_admin, only: [:new, :edit, :create, :update, :destroy]
+
+  # Sidebar
+  before_filter :uni_sidebar_vars, only: :show
   
   def show
     @sorority = @chapter.sorority
@@ -55,6 +60,10 @@ class SororityChaptersController < ApplicationController
   end
 
   private
+    def uni_sidebar_vars
+      @uni_discs = @chapter.university.topics.order('updated_at DESC').limit(3)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_sorority_chapter
       @chapter = SororityChapter.find(params[:id])

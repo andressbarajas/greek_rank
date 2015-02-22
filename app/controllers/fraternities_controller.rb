@@ -1,4 +1,5 @@
 class FraternitiesController < ApplicationController
+
   before_action :set_fraternity, only: [:show, :edit, :update, :destroy]
   before_filter :verify_is_admin, except: [:index, :show]
 

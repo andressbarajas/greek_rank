@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sidebar_vars 
-    @discussions # Article
+    @posts = [] # Article
   end
 end

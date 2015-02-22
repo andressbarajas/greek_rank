@@ -1,5 +1,10 @@
 class TopicController < ApplicationController
+  layout "universities", only: [:show]
+
   before_action :set_topic, only: [:show, :destroy]
+
+  # Sidebar
+  before_filter :uni_sidebar_vars, only: :show
 
   def show
     @university = @topic.university
@@ -79,6 +84,10 @@ class TopicController < ApplicationController
   end
 
   private
+    def uni_sidebar_vars
+      @uni_discs = @topic.university.topics.order('updated_at DESC').limit(3)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
       @topic = Topic.find(params[:id])

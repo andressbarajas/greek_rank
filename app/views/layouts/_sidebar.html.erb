@@ -1,1 +1,10 @@
-<h2>LAYOUT</h2>
+  <div class="well well-sm">
+    <h3 class="text-center">Recent Posts<h3>
+
+    <ul>
+      <% @posts.each do |post| %>
+        <li><%= link_to "#{post.subject}", topic_path(post) %></li>
+        <hr>
+      <% end %>
+    </ul>
+  </div>
