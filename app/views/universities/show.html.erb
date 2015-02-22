@@ -1,7 +1,6 @@
 <%= render partial: "shared/uni_category_panel", :locals => { category_panel_body: "uni_panel_body" } %>
-<br>
 
-Latest Discussions: <br><br>
+<h3>Latest Discussions:</h3> <br>
 <% @discussions.each do |topic| %>
   <div class="panel panel-default">
     <div class="panel-heading">

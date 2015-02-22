@@ -1,5 +1,8 @@
-<h5 class="text-center"><%= "#{@university.name} - #{@university.initials} Fraternities"%></h5>
+<h4 class="text-center"><%= "#{@university.name} - #{@university.initials} Fraternities"%></h4>
+
+Total Fraternities: <%= "#{@chapters.count}"%>
 
 <% if current_user.admin? %>
+<br>
   <%= link_to "Create Fraternity Chapter", new_university_fraternity_chapter_path(@university) %>
 <% end %>

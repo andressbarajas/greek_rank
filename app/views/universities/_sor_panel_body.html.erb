@@ -1,4 +1,7 @@
-<h3><%= "#{@university.name} - #{@university.initials} Sororities"%></h3>
+<h4 class="text-center"><%= "#{@university.name} - #{@university.initials} Sororities"%></h4>
+
+Total Sororities: <%= "#{@chapters.count}" %>
 <% if current_user.admin? %>
+  <br>
   <%= link_to "Create Sorority Chapter", new_university_sorority_chapter_path(@university) %>
 <% end %>
