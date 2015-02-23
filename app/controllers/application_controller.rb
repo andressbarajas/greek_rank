@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sidebar_vars 
-    @posts = [] # Article
+    @posts = Article.order('created_at DESC').limit(3)
   end
 end

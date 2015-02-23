@@ -32,7 +32,12 @@ Rails.application.routes.draw do
     end
   end
 
+  # Articles
+  get '/testing/' => 'application#testing'
+
   get 'welcome/index'
+  get 'welcome/new_article'
+  post 'welcome/create_article'
 
   root 'welcome#index'
 end

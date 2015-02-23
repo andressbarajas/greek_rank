@@ -3,7 +3,7 @@
   <h4 class="text-center">Recent Posts</h4>
   <ul>
     <% @posts.each do |post| %>
-      <li><%= link_to truncate_sidebar_link(post.subject), topic_path(post) %></li>
+      <li><%= link_to truncate_sidebar_link(post.title), "#{post.url}" %></li>
       <hr>
     <% end %>
   </ul>

@@ -1,2 +1,11 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+<% if is_an_admin? %>
+  <%= link_to 'Create an Article', welcome_new_article_path %>
+<% end %>
+
+<% @articles.each do |article| %>
+  <h3><%= article.title %></h3>
+  <%= article.summary %>
+  <hr>
+<% end %>
+
