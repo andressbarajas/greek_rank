@@ -5,8 +5,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_sidebar_vars
 
+  helper_method :is_an_admin?
+
   def verify_is_admin
     (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
+  end
+
+  def is_an_admin?
+    current_user && current_user.admin?
   end
 
   def set_sidebar_vars 

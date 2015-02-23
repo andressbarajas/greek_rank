@@ -16,7 +16,7 @@
 <br>
 <div class="text-center">
   <%= link_to 'Rate this Sorority', new_sorority_chapter_rating_path(@chapter), class: "btn btn-success" %>
-  <% if current_user.admin? %>
+  <% if is_an_admin? %>
     <br>
     <%= link_to 'Edit this Chapter', edit_sorority_chapter_path(@chapter) %>
   <% end %>

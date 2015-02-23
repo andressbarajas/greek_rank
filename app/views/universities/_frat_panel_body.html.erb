@@ -2,7 +2,7 @@
 
 Total Fraternities: <%= "#{@chapters.count}"%>
 
-<% if current_user.admin? %>
+<% if is_an_admin? %>
 <br>
   <%= link_to "Create Fraternity Chapter", new_university_fraternity_chapter_path(@university) %>
 <% end %>

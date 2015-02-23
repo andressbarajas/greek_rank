@@ -5,7 +5,7 @@ real insight into the different sororities and fraternities on each university
 campus. Browse through our list of the universities below to start reviewing 
 sorority and fraternity rankings.</p>
 
-<% if current_user.admin? %>
+<% if is_an_admin? %>
   <%= link_to "Create new University", new_university_path %>
 <% end %>
 

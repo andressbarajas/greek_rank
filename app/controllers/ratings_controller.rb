@@ -16,7 +16,7 @@ class RatingsController < ApplicationController
       if @rating.save
         @chapter.calculate_percentages
         @chapter.save
-        format.html { redirect_to @chapter, notice: 'Chapter rating was successfully created.' }
+        format.html { redirect_to @chapter }
         format.json { render :show, status: :created, location: @chapter }
       else
         format.html { render :new }

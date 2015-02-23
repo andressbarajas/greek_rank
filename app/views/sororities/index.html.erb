@@ -2,7 +2,7 @@
 
 <p>Search through our list of sorority organizations provided below to find general information about each of them, or check out the best sororities on Greekrank.</p>
 
-<% if current_user.admin? %>
+<% if is_an_admin? %>
   <%= link_to "Create new Sorority", new_sorority_path %>
 <% end %>
 
