@@ -8,25 +8,26 @@
 </head>
 <body>
   <%= render "layouts/header" %>
-  <div id="main" class="container">
-    <% flash.each do |name,msg|%>
-      <%= content_tag(:div, msg, class: "alert alert-info")%>
-    <% end %>
-    <div class="row">
-      <div class="col-md-9">
-          <%= yield %>
-      </div>
-      <div class="col-md-3">
-        <%= content_for?(:sidebar) ? yield(:sidebar) : render("layouts/sidebar") %>
-      </div>
-    </div>
-    <div class="footer">
+  <div class="wrapper">
+    <div id="main" class="container">
+      <% flash.each do |name,msg|%>
+        <%= content_tag(:div, msg, class: "alert alert-info")%>
+      <% end %>
       <div class="row">
-        <div class="col-md-12">
-          <%= render "layouts/footer" %>
+        <div class="col-md-9">
+            <%= yield %>
+        </div>
+        <div class="col-md-3">
+          <%= content_for?(:sidebar) ? yield(:sidebar) : render("layouts/sidebar") %>
         </div>
       </div>
     </div>
-  </div>
+    <div class="push"></div>
+  </div> 
+  <footer class="footer">
+    <div class="container">
+      <%= render "layouts/footer" %>
+    </div>
+  </footer>
 </body>
 </html>

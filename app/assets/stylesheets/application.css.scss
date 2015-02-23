@@ -55,3 +55,23 @@ hr {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 90%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -160px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.push {
+  height: 160px;
+}
+
+.footer {
+  height: 160px;
+  background-color: #f5f5f5;
+}
