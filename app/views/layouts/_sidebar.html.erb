@@ -1,6 +1,6 @@
 <div class="spacer50"></div>
 <div class="well well-sm">
-  <h3 class="text-center">Recent Posts</h3>
+  <h4 class="text-center">Recent Posts</h4>
   <ul>
     <% @posts.each do |post| %>
       <li><%= link_to truncate_sidebar_link(post.subject), topic_path(post) %></li>
