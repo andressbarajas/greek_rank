@@ -35,9 +35,7 @@ Rails.application.routes.draw do
   # Articles
   get '/testing/' => 'application#testing'
 
-  get 'welcome/index'
-  get 'welcome/new_article'
-  post 'welcome/create_article'
+  resources :welcome
 
   root 'welcome#index'
 end
