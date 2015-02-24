@@ -3,4 +3,6 @@
 <%= "Total Sororities: #{@sorority_chapter_count}" %><br>
 <%= "Total Discussions: #{@discussion_count}"%><br>
 
-<%= link_to 'Edit this University', edit_university_path(@university) %>
+<% if is_an_admin? %>
+  <%= link_to 'Edit this University', edit_university_path(@university) %>
+<% end %>
