@@ -33,7 +33,10 @@ Rails.application.routes.draw do
   end
 
   # Articles
-  get '/testing/' => 'application#testing'
+  get '/lorem_ipsum/' => 'application#lorem_ipsum'
+  get '/bacon_ipsum/' => 'application#bacon_ipsum'
+  get '/hipster_ipsum/' => 'application#hipster_ipsum'
+  get '/gangsta_ipsum/' => 'application#gangsta_ipsum'
 
   resources :welcome
 

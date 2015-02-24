@@ -15,6 +15,7 @@ Post.delete_all
 Rating.delete_all
 Topic.delete_all
 User.delete_all
+Article.delete_all
 
 fraternities = Fraternity.create([
                                   { name: 'Sigma Nu', letters: 'ΣΝ'}, 
@@ -187,3 +188,48 @@ Topic.create({university_id: University.second.id,
                        "volutpat id eget eros. Curabitur tincidunt efficitur pharetra. Ut sagittis " +
                        "interdum elit ut bibendum. Ut sit amet viverra mi, id pharetra leo. Cras " +
                        "ac commodo dolor."})
+
+Article.create({url: "/lorem_ipsum/",
+                title: "Lorem Ipsum",
+                summary: "Mauris ultrices purus nec arcu semper, ac auctor erat molestie. Curabitur " +
+                         "non est eget tortor mollis mollis in sed dolor. Proin bibendum sollicitudin " +
+                         "nisl. Sed iaculis justo ex, ac convallis erat condimentum quis. Pellentesque " +
+                         "arcu velit, vehicula et porta et, consectetur in lectus. Aenean pellentesque " +
+                         "faucibus pretium. In ultricies augue a congue ultricies. Phasellus iaculis dolor " +
+                         "in erat tincidunt pharetra. Donec vel finibus lorem. Morbi viverra felis enim, " +
+                         "eget ultricies arcu ullamcorper nec. Quisque a est quis felis consectetur luctus et " +
+                         "sed nunc. In hac habitasse platea dictumst. In hac habitasse platea dictumst. Cras " +
+                         "elementum tortor eros, nec maximus urna tempus a. Nam tincidunt justo non sodales aliquam."})
+
+Article.create({url: "/gangsta_ipsum/",
+                title: "Gangsta Ipsum",
+                summary: "Lorizzle ipsizzle dolizzle sit amizzle, consectetizzle adipiscing elizzle. Phat " +
+                         "sapizzle velizzle, aliquet volutpizzle, suscipizzle cool, bling bling vizzle, fizzle. " +
+                         "Pellentesque eget tortor. Sizzle the bizzle. Gangster izzle dolizzle dang check out " +
+                         "this that's the shizzle break yo neck, yall. Maurizzle uhuh ... yih! break it down " +
+                         "shizzle my nizzle crocodizzle turpis. Mofo black tortizzle. Pellentesque fo shizzle " +
+                         "mah nizzle fo rizzle, mah home g-dizzle dizzle boofron. In tellivizzle yo platea own " +
+                         "yo'. Mofo dapibus. Curabitur tellizzle urna, pretizzle the bizzle, mattizzle own yo', " +
+                         "eleifend vitae, hizzle. Shizznit suscipizzle. Integizzle semper fo shizzle da bomb ma nizzle."})
+
+Article.create({url: "/bacon_ipsum/",
+                title: "Bacon Ipsum",
+                summary: "Bacon ipsum dolor amet pancetta capicola sirloin venison pork loin. Chuck flank " +
+                         "pork loin pork chop biltong pancetta beef sirloin drumstick short loin frankfurter " +
+                         "kielbasa porchetta. Cupim pork chop salami, brisket ham sirloin rump pastrami " +
+                         "frankfurter jerky kielbasa pork sausage doner spare ribs. Turducken salami shank " +
+                         "porchetta beef ribs meatloaf frankfurter pork belly picanha strip steak bresaola " +
+                         "chicken kevin. Flank salami t-bone, turkey tenderloin pork belly short ribs leberkas " +
+                         "sausage."})
+
+Article.create({url: "/hipster_ipsum/",
+                title: "Hipster Ipsum",
+                summary: "Put a bird on it pickled kale chips paleo synth freegan. Four dollar toast banjo " +
+                         "Bushwick, locavore wolf selfies photo booth umami. Ennui Pinterest photo booth crucifix " +
+                         "Echo Park, Williamsburg flannel trust fund narwhal. Bicycle rights hoodie quinoa fanny " +
+                         "pack scenester craft beer Pitchfork. Gentrify mixtape organic meh, plaid kogi swag. Trust " +
+                         "fund occupy Pinterest banjo twee. Before they sold out cray locavore quinoa, cardigan fixie " +
+                         "cred you probably haven't heard of them actually Schlitz 8-bit tofu."})
+
+
+
