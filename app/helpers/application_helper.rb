@@ -20,6 +20,8 @@ private
       true
     elsif /\/universities\/\d+\/sororities/.match(link_path) && params[:controller] == "sorority_chapters"
       true
+    elsif /\/universities\/\d+\/discussion/.match(link_path) && params[:controller] == "topic"
+      true
     else
       false
     end
