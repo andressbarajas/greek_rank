@@ -7,26 +7,28 @@ and to build a website WITHOUT a step-by-step guide.
 
 This is a minimalist replica of www.greekrank.com
 
-#### Dependencies:
+<b>Dependencies:</b>
 
 * Ruby 2.0 
 
 * Rails 4.1.6
 
-#### You will need to install elasticsearch:
+<b>You will need to install elasticsearch:</b>
 
 brew install elasticsearch
-elasticsearch -d
 
-To check and make sure that it is running try localhost:9200
+elasticsearch -d (to run in the background)
 
-#### To setup the database and populate it:
+To check and make sure that it is running try http://localhost:9200
+
+<b>To setup the database and populate it:</b>
 
 rake db:migrate
+
 rake db:seed
 
-#### How to run the test suite:
+<b>How to run the test suite:</b>
 
 rake test:prepare
-rake test
 
+rake test
