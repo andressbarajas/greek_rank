@@ -17,11 +17,10 @@ class RatingsControllerTest < ActionController::TestCase
                               involvement: 1.5,
                               socialness: 1.5,
                               brotherhood: 1.5,
-                              chapter_id: 1,
-                              chapter_type: "FraternityChapter" }
+                              chapter_id: @chapter.id,
+                              chapter_type: @chapter.class.name }
     end
 
-    assert_redirected_to @chapter
-    assert_response :success
+    assert_redirected_to assigns(:rating).chapter
   end
 end

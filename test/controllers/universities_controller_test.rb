@@ -12,11 +12,13 @@ class UniversitiesControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
+    sign_in users(:one)
     get :new
     assert_response :success
   end
 
   test "should create university" do
+    sign_in users(:one)
     assert_difference('University.count') do
       post :create, university: { name: @university.name, initials: @university.initials }
     end
@@ -30,16 +32,19 @@ class UniversitiesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
+    sign_in users(:one)
     get :edit, id: @university
     assert_response :success
   end
 
   test "should update university" do
+    sign_in users(:one)
     patch :update, id: @university, university: { name: @university.name, initials: @university.initials }
     assert_redirected_to university_path(assigns(:university))
   end
 
   test "should destroy university" do
+    sign_in users(:one)
     assert_difference('University.count', -1) do
       delete :destroy, id: @university
     end

@@ -1,11 +1,11 @@
 class UniversitiesController < ApplicationController
-  layout "application", only: [:index, :search]
+  layout "application", only: [:index, :search, :new]
 
   before_action :set_university, except: [:index, :new, :create, :search] 
   before_filter :verify_is_admin, only: [:new, :edit, :create, :update, :destroy]
 
   # Sidebar
-  before_filter :uni_sidebar_vars, except: [:index, :search]
+  before_filter :uni_sidebar_vars, except: [:index, :search, :new, :create]
 
   def index
     @universities = University.all
