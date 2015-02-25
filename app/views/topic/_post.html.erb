@@ -57,7 +57,7 @@
         </div>
         <div class="panel-body">
           <%= label_tag(:message, "Message:") %>
-          <%= text_area_tag("topic[message]", nil, rows: 10, cols: 60) %><br>
+          <%= text_area_tag("topic[message]", nil, rows: 10, cols: 50) %><br>
           <%= submit_tag("Reply", class: "btn btn-success") %>
           <%= hidden_field_tag("topic[post_id]", post.id) %>
         </div>

@@ -1,15 +1,14 @@
 <nav class="navbar navbar-default navbar-inverse", role="navigation">
   <div class="container">
+    <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>  
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <%= link_to "GreekRank", root_path, class: "navbar-brand" %>
     </div>
-    <div class="collapse navbar-collapse", id="bs-example-navbar-collapse-1">
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to "Universities", universities_path %></li>
         <li><%= link_to "Fraternities", fraternities_path %> </li>
@@ -21,7 +20,9 @@
           <%= form_tag search_universities_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
             <p>
               <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "University" %>
-              <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+              <%= button_tag(type: "submit", class: "btn btn-default") do %>
+                <span class="glyphicon glyphicon-search"></span>
+              <% end %>
             <p>
           <% end %>
         </li>
