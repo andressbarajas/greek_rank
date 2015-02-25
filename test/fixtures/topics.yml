@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  nick_name: Michael
   subject: MyString
+  message: HeSaid
 
 two:
+  nick_name: Elizabeth
   subject: MyString
+  message: SheSaid

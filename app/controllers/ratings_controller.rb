@@ -5,9 +5,6 @@ class RatingsController < ApplicationController
     @rating = Rating.new
   end
 
-  def edit
-  end
-
   def create
     @rating = @chapter.ratings.build(rating_params)
     @rating.calculate_average

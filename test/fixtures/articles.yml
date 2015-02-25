@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one: {
+  url: "/testing/",
+  title: "Testing Title",
+  summary: "A very short summary"
+}
 # column: value
 #
-two: {}
+two: {
+  url: "/testing2/",
+  title: "Testing Title 2",
+  summary: "A very short summary 2"
+}
 #  column: value

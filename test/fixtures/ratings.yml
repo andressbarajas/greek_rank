@@ -5,17 +5,21 @@ one:
   message: MyString
   looks: 1.5
   popularity: 1.5
-  clasiness: 1.5
+  classiness: 1.5
   involvement: 1.5
   socialness: 1.5
   brotherhood: 1.5
+  chapter_id: 1
+  chapter_type: FraternityChapter
 
 two:
   nick_name: MyString
   message: MyString
   looks: 1.5
   popularity: 1.5
-  clasiness: 1.5
+  classiness: 1.5
   involvement: 1.5
   socialness: 1.5
   brotherhood: 1.5
+  chapter_id: 2
+  chapter_type: SororityChapter

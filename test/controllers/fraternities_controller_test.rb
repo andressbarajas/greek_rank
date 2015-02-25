@@ -18,7 +18,7 @@ class FraternitiesControllerTest < ActionController::TestCase
 
   test "should create fraternity" do
     assert_difference('Fraternity.count') do
-      post :create, fraternity: { name: @fraternity.name, letters: @fraternity.letters }
+      post :create, fraternity: { name: "Fake", letters: "F" }
     end
 
     assert_redirected_to fraternity_path(assigns(:fraternity))

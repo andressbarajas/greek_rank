@@ -5,11 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {
-  chapter_name: "Alpha"
+  chapter_name: "Alpha",
+  sorority_id: 1
 }
 # column: value
 #
 two: {
-  chapter_name: "Beta"
+  chapter_name: "Beta",
+  sorority_id: 2
 }
 #  column: value
